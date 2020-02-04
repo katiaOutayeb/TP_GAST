@@ -1,0 +1,49 @@
+/* S_SECTION*/
+CREATE OR REPLACE TYPE S_SECTION AS
+object(rid INTEGER,   side INTEGER,   latitude1 NUMBER, longitude1 NUMBER, latitude2 NUMBER, longitude2 NUMBER);
+/
+
+
+CREATE OR REPLACE TYPE S_SECTIONS_V AS VARRAY(1000) OF S_SECTION;
+/
+
+/* real */
+
+CREATE OR REPLACE type usreal AS
+object(a NUMBER,   b NUMBER,   c NUMBER,   r NUMBER,   nid INTEGER,   INTERVAL S_SECTION,   sequence INTEGER);
+/
+
+CREATE OR REPLACE TYPE USREAL_V AS VARRAY(10000) OF usreal;
+/
+
+CREATE OR REPLACE TYPE SREAL_V AS
+object(units UGREAL_V)
+/
+
+/* int*/
+
+CREATE OR REPLACE type usint AS
+object(val INTEGER,   nid INTEGER,   INTERVAL S_SECTION,   sequence INTEGER);
+/
+
+CREATE OR REPLACE TYPE USINT_V AS VARRAY(10000) OF usint;
+/
+
+CREATE OR REPLACE TYPE SINT_V AS
+object(units USINT_V)
+/
+
+
+
+/* Point */
+CREATE OR REPLACE TYPE uspoint AS
+object(nid INTEGER,   rid INTEGER,   side INTEGER,   t1 NUMBER,   t2 NUMBER,   latitude1 NUMBER, longitude1 NUMBER, latitude2 NUMBER, longitude2 NUMBER)
+/
+
+CREATE OR REPLACE TYPE USPOINT_V AS VARRAY(10000) OF spoint;
+
+/
+CREATE OR REPLACE TYPE MPOINT_V AS
+object(units USPOINT_V);
+
+/
